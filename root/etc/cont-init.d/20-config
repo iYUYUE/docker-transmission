@@ -2,7 +2,7 @@
 
 # make folders
 mkdir -p \
-	/downloads/{complete,incomplete} /watch
+	/downloads/{Downloads,Downloading} /watch
 
 # copy config
 [[ ! -f /config/settings.json ]] && cp \
@@ -18,6 +18,6 @@ fi
 chown abc:abc \
 	/config/settings.json \
 	/downloads \
-	/downloads/complete \
-	/downloads/incomplete \
+	/downloads/Downloads \
+	/downloads/Downloading \
 	/watch

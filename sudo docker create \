@@ -1,0 +1,13 @@
+sudo docker create \
+  --name=transmission \
+  -e PUID=0 \
+  -e PGID=0 \
+  -e TRANSMISSION_WEB_HOME=/transmission-web-theme/ `#optional` \
+  -p 127.0.0.1:9091:9091 \
+  -p 51413:51413 \
+  -p 51413:51413/udp \
+  -v /home/docker/transmission:/config \
+  -v /home/transmission/files:/downloads \
+  -v /home/transmission/watch:/watch \
+  --restart unless-stopped \
+  b2e572969106

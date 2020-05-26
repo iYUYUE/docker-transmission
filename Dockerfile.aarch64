@@ -22,29 +22,16 @@ RUN \
 	unrar \
 	unzip && \
  echo "**** install third party themes ****" && \
- curl -o \
-	/tmp/combustion.zip -L \
-	"https://github.com/Secretmapper/combustion/archive/release.zip" && \
- unzip \
-	/tmp/combustion.zip -d \
-	/ && \
- mkdir -p /tmp/twctemp && \
- TWCVERSION=$(curl -sX GET "https://api.github.com/repos/ronggang/transmission-web-control/releases/latest" \
+ mkdir -p /tmp/twttemp && \
+ TWTVERSION=$(curl -sX GET "https://api.github.com/repos/iYUYUE/transmission-web-theme/releases/latest" \
 	| awk '/tag_name/{print $4;exit}' FS='[""]') && \
  curl -o \
-	/tmp/twc.tar.gz -L \
-	"https://github.com/ronggang/transmission-web-control/archive/${TWCVERSION}.tar.gz" && \
+	/tmp/twt.tar.gz -L \
+	"https://github.com/iYUYUE/transmission-web-theme/archive/${TWTVERSION}.tar.gz" && \
  tar xf \
-	/tmp/twc.tar.gz -C \
-	/tmp/twctemp --strip-components=1 && \
- mv /tmp/twctemp/src /transmission-web-control && \
- mkdir -p /kettu && \
- curl -o \
-	/tmp/kettu.tar.gz -L \
-	"https://github.com/endor/kettu/archive/master.tar.gz" && \
- tar xf \
-	/tmp/kettu.tar.gz -C \
-	/kettu --strip-components=1 && \
+	/tmp/twt.tar.gz -C \
+	/tmp/twttemp --strip-components=1 && \
+ mv /tmp/twttemp /transmission-web-theme && \
  echo "**** cleanup ****" && \
  rm -rf \
 	/tmp/*
